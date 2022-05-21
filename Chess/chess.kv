@@ -1,0 +1,108 @@
+#:import Factory kivy.factory.Factory
+#: import FadeTransition kivy.uix.screenmanager.FadeTransition
+WindowManager:
+    StartWindow:
+    RulesWindow:
+    Board:
+<StartWindow>:
+    name: 'first'
+    canvas.before:
+        Color:
+            rgba: .19, .18, .17, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+        Label:
+            text: 'Chess AI'
+            font_size: 100
+            color: .83, .83, .83, 1
+            size_hint_y: 1.2
+            bold: True
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 0.5
+            spacing: 6
+            padding: 10
+            Label:
+                font_size: 54
+                size_hint_x: 0.5
+            Button:
+                text: 'Play'
+                font_size: 45
+                background_color: (.93, .93, .82, 1)
+                bold: True
+                canvas.before:
+                    Color:
+                        rgba: .46, .59, .33, 1
+                    Line:
+                        width: 6
+                        rectangle: self.x, self.y, self.width, self.height
+                on_release:
+                    root.manager.transition = FadeTransition(clearcolor=(.19, .18, .17, 1), duration=.35)
+                    app.root.current = 'game'
+            Button:
+                text: 'Rules'
+                font_size: 45
+                background_color: (.93, .93, .82, 1)
+                bold: True
+                canvas.before:
+                    Color:
+                        rgba: .46, .59, .33, 1
+                    Line:
+                        width: 6
+                        rectangle: self.x, self.y, self.width, self.height
+                on_release:
+                    root.manager.transition = FadeTransition(clearcolor=(.19, .18, .17, 1), duration=.5)
+                    app.root.current = "rules"
+            Button:
+                text: 'Quit'
+                font_size: 45
+                background_color: (.93, .93, .82, 1)
+                bold: True
+                canvas.before:
+                    Color:
+                        rgba: .46, .59, .33, 1
+                    Line:
+                        width: 6
+                        rectangle: self.x, self.y, self.width, self.height
+                on_release: quit()
+            Label:
+                font_size: 54
+                size_hint_x: 0.5
+        Label:
+            text: "[i]By Ari Lerner[/i]"
+            markup: True
+            color: .83, .83, .83, 1
+            size_hint_y: 0.5
+<RulesWindow>:
+    name: "rules"
+    canvas.before:
+        Color:
+            rgba: .19, .18, .17, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        orientation: "vertical"
+        background_color: rgba(.46, .59, .33, 1)
+        Image:
+            source: 'chess_rules_hebrew.png'
+            allow_stretch: False
+        Button:
+            text: '<- main menu'
+            font_name: 'Arial'
+            font_size: 32
+            size_hint_y: 0.2
+            on_release:
+                root.manager.transition = FadeTransition(clearcolor=(.19, .18, .17, 1),duration=.5)
+                app.root.current = "first"
+<Board>:
+    name: 'game'
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'white_green_board.png'

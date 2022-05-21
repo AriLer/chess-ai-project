@@ -1,0 +1,5 @@
+# "4k3/8/P6P/8/8/8/8/4K3 w - - 0 1"
+# "4k3/8/q6q/8/8/8/8/4K3 w - - 0 1"
+# "2r2rk1/Qpqbppbp/1n4p1/3PP3/6P1/P1N2N1P/1P2BP2/R4RK1 w - 0 1"
+# start_b = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+# "4k3/8/8/2B5/4N3/p7/7p/4K3 w - - 0 1"
